@@ -267,15 +267,15 @@ namespace DitzelGames.FastIK
             float BaseRotation = Mathf.Atan2(this.targetProjectedToFloor.x, this.targetProjectedToFloor.z) * 180 / Mathf.PI;
             float ShoulderRotation = Vector3.Angle(ShoulderSegmentVector, Vector3.up);
             float ElbowRotation = Vector3.Angle(ElbowSegmentVector, ShoulderSegmentVector);
-            float WristRotation = Vector3.Angle(Bones[3].position - Bones[2].position, Bones[2].position - Bones[1].position);
+            float WristRotation = Vector3.Angle(WristSegmentVector, ElbowSegmentVector);
 
             // make negative angles if behind bottom segment
             if (UsingLimits && Bones[1].position.x < 0) // generic because using Vector3.up
                 ShoulderRotation = -ShoulderRotation; // make angle negative
-            if (UsingLimits && Vector3.Cross(ElbowSegmentVector, ShoulderSegmentVector).y > 0 ) // see if angle is negative
+            if (UsingLimits && Vector3.Cross(ElbowSegmentVector, ShoulderSegmentVector).y >= 0 ) // see if angle is negative
                 ElbowRotation = -ElbowRotation;
-            if (UsingLimits && Vector3.Cross(WristSegmentVector, ElbowSegmentVector).y > 0)
-                WristRotation = -WristRotation;
+            //if (UsingLimits && Vector3.Cross(WristSegmentVector, ElbowSegmentVector).y >= 0)
+            //    WristRotation = -WristRotation;
 
             // create data string & send
             string anglesData = "B" + BaseRotation + " S" + ShoulderRotation +" E"+ElbowRotation+" W"+WristRotation;

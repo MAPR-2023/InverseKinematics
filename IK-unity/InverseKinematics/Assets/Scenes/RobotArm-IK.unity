@@ -901,7 +901,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1081328271236860970, guid: ce4915b6c4c6743aabe8f68da99ce584, type: 3}
       propertyPath: portName
-      value: /dev/cu.usbmodem141401
+      value: /dev/cu.usbmodem1433101
       objectReference: {fileID: 0}
     - target: {fileID: 2862391057223823253, guid: ce4915b6c4c6743aabe8f68da99ce584, type: 3}
       propertyPath: m_Name
@@ -951,6 +951,10 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 2019914282}
+    - target: {fileID: 8396462259196576116, guid: ce4915b6c4c6743aabe8f68da99ce584, type: 3}
+      propertyPath: wireless
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
